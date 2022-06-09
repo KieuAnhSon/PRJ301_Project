@@ -34,4 +34,6 @@ public abstract class DBConnection<T> {
     }
     
     public abstract ArrayList<T> get();
+    
+    public abstract void update(Student stu);
 }
