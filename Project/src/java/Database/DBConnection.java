@@ -7,6 +7,7 @@ package Database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,7 +15,7 @@ import java.util.logging.Logger;
  *
  * @author Mountain
  */
-public class DBConnection {
+public abstract class DBConnection<T> {
 
     protected Connection connection;
 
@@ -31,4 +32,6 @@ public class DBConnection {
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public abstract ArrayList<T> get();
 }
