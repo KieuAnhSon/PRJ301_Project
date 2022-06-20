@@ -1,0 +1,12 @@
+h1{
+    text-align: center;
+}
+div#container{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: blue;
+}
