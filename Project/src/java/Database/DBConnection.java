@@ -4,6 +4,7 @@
  */
 package Database;
 
+import Model.Student;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -35,5 +36,7 @@ public abstract class DBConnection<T> {
     
     public abstract ArrayList<T> get();
     
-    public abstract void update(Student stu);
+    public abstract void update(T model);
+    
+    public abstract void create(T model);
 }
