@@ -9,9 +9,10 @@ package Model;
  * @author Mountain
  */
 public class Group {
+
     private String groupID;
     private String groupName;
-    private Course course;
+    private String courseID;
 
     public String getGroupID() {
         return groupID;
@@ -29,12 +30,12 @@ public class Group {
         this.groupName = groupName;
     }
 
-    public Course getCourse() {
-        return course;
+    public String getCourseID() {
+        return courseID;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
     }
-    
+
 }

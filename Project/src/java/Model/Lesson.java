@@ -9,12 +9,13 @@ package Model;
  * @author Mountain
  */
 public class Lesson {
+
     private String lessonID;
     private String lessonName;
-    private TimeSlot time;
-    private Room room;
-    private Instructor ins;
-    private Group group;
+    private String timeID;
+    private String roomID;
+    private String insID;
+    private String groupID;
 
     public String getLessonID() {
         return lessonID;
@@ -32,36 +33,36 @@ public class Lesson {
         this.lessonName = lessonName;
     }
 
-    public TimeSlot getTime() {
-        return time;
+    public String getTimeID() {
+        return timeID;
     }
 
-    public void setTime(TimeSlot time) {
-        this.time = time;
+    public void setTimeID(String timeID) {
+        this.timeID = timeID;
     }
 
-    public Room getRoom() {
-        return room;
+    public String getRoomID() {
+        return roomID;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setRoomID(String roomID) {
+        this.roomID = roomID;
     }
 
-    public Instructor getIns() {
-        return ins;
+    public String getInsID() {
+        return insID;
     }
 
-    public void setIns(Instructor ins) {
-        this.ins = ins;
+    public void setInsID(String insID) {
+        this.insID = insID;
     }
 
-    public Group getGroup() {
-        return group;
+    public String getGroupID() {
+        return groupID;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setGroupID(String groupID) {
+        this.groupID = groupID;
     }
-    
+
 }
