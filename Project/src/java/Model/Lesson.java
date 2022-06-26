@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Mountain
@@ -16,6 +18,15 @@ public class Lesson {
     private String roomID;
     private String insID;
     private String groupID;
+    private Date lessonDate;
+
+    public Date getLessonDate() {
+        return lessonDate;
+    }
+
+    public void setLessonDate(Date lessonDate) {
+        this.lessonDate = lessonDate;
+    }
 
     public String getLessonID() {
         return lessonID;
