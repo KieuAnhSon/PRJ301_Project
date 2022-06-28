@@ -12,7 +12,7 @@ public class Group {
 
     private String groupID;
     private String groupName;
-    private String courseID;
+    private Course course;
 
     public String getGroupID() {
         return groupID;
@@ -30,12 +30,12 @@ public class Group {
         this.groupName = groupName;
     }
 
-    public String getCourseID() {
-        return courseID;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCourseID(String courseID) {
-        this.courseID = courseID;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
 }

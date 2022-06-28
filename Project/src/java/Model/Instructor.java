@@ -9,9 +9,9 @@ package Model;
  * @author Mountain
  */
 public class Instructor {
+
     private String insID;
     private String insName;
-    private String insEmail;
 
     public String getInsID() {
         return insID;
@@ -29,13 +29,4 @@ public class Instructor {
         this.insName = insName;
     }
 
-    public String getInsEmail() {
-        return insEmail;
-    }
-
-    public void setInsEmail(String insEmail) {
-        this.insEmail = insEmail;
-    }
-    
-    
 }

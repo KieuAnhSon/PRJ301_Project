@@ -34,9 +34,13 @@ public abstract class DBConnection<T> {
         }
     }
     
-    public abstract ArrayList<T> get();
+    public abstract ArrayList<T> list();
     
     public abstract void update(T model);
     
     public abstract void create(T model);
+    
+    public abstract void delete(T model);
+    
+    public abstract T get();
 }

@@ -11,12 +11,7 @@ import java.util.ArrayList;
  *
  * @author Mountain
  */
-public class AttendanceDBConnection extends DBConnection<Attendance>{
-
-    @Override
-    public ArrayList<Attendance> get() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+public class AttendanceDBConnection extends DBConnection<Attendance> {
 
     @Override
     public void update(Attendance model) {
@@ -27,5 +22,20 @@ public class AttendanceDBConnection extends DBConnection<Attendance>{
     public void create(Attendance model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
+    @Override
+    public ArrayList<Attendance> list() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void delete(Attendance model) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Attendance get() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }
