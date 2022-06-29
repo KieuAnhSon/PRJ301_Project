@@ -4,40 +4,40 @@
  */
 package Model;
 
-import java.sql.Date;
+import java.sql.Time;
 
 /**
  *
  * @author Mountain
  */
 public class TimeSlot {
-    private String timeID;
-    private Date timeStart;
-    private Date timeEnd;
 
-    public String getTimeID() {
+    private int timeID;
+    private Time timeStart;
+    private Time timeEnd;
+
+    public int getTimeID() {
         return timeID;
     }
 
-    public void setTimeID(String timeID) {
+    public void setTimeID(int timeID) {
         this.timeID = timeID;
     }
 
-    public Date getTimeStart() {
+    public Time getTimeStart() {
         return timeStart;
     }
 
-    public void setTimeStart(Date timeStart) {
+    public void setTimeStart(Time timeStart) {
         this.timeStart = timeStart;
     }
 
-    public Date getTimeEnd() {
+    public Time getTimeEnd() {
         return timeEnd;
     }
 
-    public void setTimeEnd(Date timeEnd) {
+    public void setTimeEnd(Time timeEnd) {
         this.timeEnd = timeEnd;
     }
-    
-    
+
 }

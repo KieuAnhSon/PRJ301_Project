@@ -22,6 +22,22 @@ public class Lesson {
     private Date lessonDate;
     private boolean checked;
 
+    public int getLessonNo() {
+        return lessonNo;
+    }
+
+    public void setLessonNo(int lessonNo) {
+        this.lessonNo = lessonNo;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
     public Date getLessonDate() {
         return lessonDate;
     }

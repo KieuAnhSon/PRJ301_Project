@@ -11,16 +11,29 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Attendance taking - View</title>
+        <link href="css/viewing.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <form action="view" method="POST">
             Lecturer: <select name="instructor">
                 <c:forEach items="${requestScope.ins}" var="i">
-                    <option value="${i.insID}">${i.insName}</option>
+                    <option 
+                        <c:if test="${param.instructor eq i.insID}">
+                            selected="selected"
+                        </c:if>
+                        value="${i.insID}">${i.insName}</option>
                 </c:forEach>
             </select><br/>
-            From: <input type="date" name="fromdate"/>
-            To: <input type="date" name="todate"/><br/>
+            From: <input type="date" name="fromdate"
+                         <c:if test="${requestScope.fromdate ne null}"> 
+                             value="${requestScope.fromdate}"
+                         </c:if>
+                         />
+            To: <input type="date" name="todate" 
+                       <c:if test="${requestScope.todate ne null}"> 
+                           value="${requestScope.todate}"
+                       </c:if>
+                       /><br/>
             <input type="submit" value="Send"/>
         </form>
         <c:if test="${requestScope.lessons ne null}">
@@ -34,16 +47,27 @@
                 <c:forEach items="${requestScope.timeslots}" var="t">
                     <tr>
                         <td>Slot ${t.timeID}</td>
-                        <c:forEach  items="${requestScope.dates}" var="d">
+                        <c:forEach items="${requestScope.dates}" var="d">
                             <c:set var="exist" value="false"/>
                             <c:forEach items="${requestScope.lessons}" var="l">
                                 <c:if test="${(l.lessonDate eq d) and (l.time.timeID eq t.timeID)}">
                                     <c:set var="exist" value="true"/>
-                                    <td>${l.group.course.courseName} - at ${l.room.roomPlace}</td>
+                                    <td>${l.group.course.courseName} </br> at ${l.room.roomPlace} </br> 
+                                        <c:if test="${l.checked eq false}">
+                                            <div style="color: red;">
+                                                (Not yet)
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${l.checked eq true}">
+                                            <div style="color: green;">
+                                                (Attended)
+                                            </div>
+                                        </c:if>
+                                    </td>
                                 </c:if>
                             </c:forEach>
                             <c:if test="${not exist}">
-                                <td></td>
+                                <td> - </td>
                             </c:if>
                         </c:forEach>
                     </tr>

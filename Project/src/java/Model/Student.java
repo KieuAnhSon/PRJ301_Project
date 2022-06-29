@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Mountain
@@ -13,6 +15,15 @@ public class Student {
     private int id;
     private String Name;
     private String Email;
+    private ArrayList<Group> groups = new ArrayList<>();
+
+    public ArrayList<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(ArrayList<Group> groups) {
+        this.groups = groups;
+    }
 
     public int getId() {
         return id;
@@ -37,6 +48,5 @@ public class Student {
     public void setEmail(String Email) {
         this.Email = Email;
     }
-    
-    
+
 }
