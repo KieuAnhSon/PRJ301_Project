@@ -13,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -74,6 +75,8 @@ public class AttendanceViewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
    //     processRequest(request, response);
+        Date fromDate = Date.valueOf(request.getParameter("fromdate"));
+        Date toDate = Date.valueOf(request.getParameter("todate"));
     }
 
     /** 

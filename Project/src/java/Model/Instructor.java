@@ -10,14 +10,14 @@ package Model;
  */
 public class Instructor {
 
-    private String insID;
+    private int insID;
     private String insName;
 
-    public String getInsID() {
+    public int getInsID() {
         return insID;
     }
 
-    public void setInsID(String insID) {
+    public void setInsID(int insID) {
         this.insID = insID;
     }
 

@@ -39,7 +39,7 @@ public class InstructorDBConnection extends DBConnection<Instructor> {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Instructor i = new Instructor();
-                i.setInsID(rs.getNString("InstructorID"));
+                i.setInsID(rs.getInt("InstructorID"));
                 i.setInsName(rs.getNString("InstructorName"));
                 instructors.add(i);
             }

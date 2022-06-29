@@ -4,21 +4,32 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Mountain
  */
 public class Group {
 
-    private String groupID;
+    private int groupID;
     private String groupName;
     private Course course;
 
-    public String getGroupID() {
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+    }
+    private ArrayList<Student> students = new ArrayList<>();
+
+    public int getGroupID() {
         return groupID;
     }
 
-    public void setGroupID(String groupID) {
+    public void setGroupID(int groupID) {
         this.groupID = groupID;
     }
 

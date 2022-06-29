@@ -11,26 +11,27 @@ import java.sql.Date;
  * @author Mountain
  */
 public class Attendance {
-    private String studentID;
-    private String lessonID;
+
+    private int studentID;
+    private Lesson lesson;
     private boolean status;
     private String comment;
     private Date recordTime;
 
-    public String getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(String studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
-    public String getLessonID() {
-        return lessonID;
+    public Lesson getLesson() {
+        return lesson;
     }
 
-    public void setLessonID(String lessonID) {
-        this.lessonID = lessonID;
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
     }
 
     public boolean isStatus() {
@@ -56,5 +57,5 @@ public class Attendance {
     public void setRecordTime(Date recordTime) {
         this.recordTime = recordTime;
     }
-    
+
 }

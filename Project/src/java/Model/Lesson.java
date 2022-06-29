@@ -12,13 +12,15 @@ import java.sql.Date;
  */
 public class Lesson {
 
-    private String lessonID;
+    private int lessonID;
     private String lessonName;
+    private int lessonNo;
     private TimeSlot time;
     private Room room;
     private Instructor ins;
     private Group group;
     private Date lessonDate;
+    private boolean checked;
 
     public Date getLessonDate() {
         return lessonDate;
@@ -28,11 +30,11 @@ public class Lesson {
         this.lessonDate = lessonDate;
     }
 
-    public String getLessonID() {
+    public int getLessonID() {
         return lessonID;
     }
 
-    public void setLessonID(String lessonID) {
+    public void setLessonID(int lessonID) {
         this.lessonID = lessonID;
     }
 
