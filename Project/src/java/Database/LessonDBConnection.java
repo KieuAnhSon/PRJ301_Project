@@ -14,6 +14,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,6 +42,7 @@ public class LessonDBConnection extends DBConnection<Lesson> {
 
     public ArrayList<Lesson> listByCondition(int insID, Date fromDate, Date toDate) {
         ArrayList<Lesson> lessons = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         try {
             String sql = "Select LessonID,LessonName,LessonNo,LessonDate,Checked\n"
                     + ",TimeSlot.TimeID,TimeBegin,TimeEnd,Lesson.RoomID,RoomPlace\n"

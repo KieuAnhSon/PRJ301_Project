@@ -53,15 +53,18 @@
                                 <c:if test="${(l.lessonDate eq d) and (l.time.timeID eq t.timeID)}">
                                     <c:set var="exist" value="true"/>
                                     <td>${l.group.course.courseName} </br> at ${l.room.roomPlace} </br> 
+                                        (${l.time.timeStart} - ${l.time.timeEnd})</br>
                                         <c:if test="${l.checked eq false}">
                                             <div style="color: red;">
                                                 (Not yet)
                                             </div>
+                                            <div>Take</div>
                                         </c:if>
                                         <c:if test="${l.checked eq true}">
                                             <div style="color: green;">
                                                 (Attended)
                                             </div>
+                                            <div>Update</div>
                                         </c:if>
                                     </td>
                                 </c:if>

@@ -101,10 +101,6 @@ public class AttendanceViewServlet extends HttpServlet {
         int insID = Integer.parseInt(request.getParameter("instructor"));
         Date fromDate = Date.valueOf(request.getParameter("fromdate"));
         Date toDate = Date.valueOf(request.getParameter("todate"));
-        LessonDBConnection lesDB = new LessonDBConnection();
-        ArrayList<Lesson> lessons = lesDB.listByCondition(insID, fromDate, toDate);
-        TimeSlotDBConnection timeDB = new TimeSlotDBConnection();
-        ArrayList<TimeSlot> timeslot = timeDB.list();
         Date begin = fromDate;
         ArrayList<Date> dates = new ArrayList<>();
         while (begin.compareTo(toDate) <= 0) {
@@ -112,6 +108,10 @@ public class AttendanceViewServlet extends HttpServlet {
             LocalDate nextDay = begin.toLocalDate().plusDays(1);
             begin = Date.valueOf(nextDay);
         }
+        LessonDBConnection lesDB = new LessonDBConnection();
+        ArrayList<Lesson> lessons = lesDB.listByCondition(insID, fromDate, toDate);
+        TimeSlotDBConnection timeDB = new TimeSlotDBConnection();
+        ArrayList<TimeSlot> timeslot = timeDB.list();
         request.setAttribute("dates", dates);
         request.setAttribute("timeslots", timeslot);
         request.setAttribute("fromdate", fromDate);
