@@ -94,6 +94,19 @@ public class LessonDBConnection extends DBConnection<Lesson> {
         return lessons;
     }
 
+    public void updateAttendanceStatus(int lessonID) {
+        try {
+            String sql = "UPDATE [Lesson]\n"
+                    + "   SET [Checked] = 1\n"
+                    + " WHERE [Lesson].[LessonID] = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, lessonID);
+            stm.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(LessonDBConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     @Override
     public void delete(Lesson model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

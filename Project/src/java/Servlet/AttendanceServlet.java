@@ -5,12 +5,15 @@
 
 package Servlet;
 
+import Database.StudentDBConnection;
+import Model.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /**
  *
@@ -54,6 +57,7 @@ public class AttendanceServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 //        processRequest(request, response);
+        
     } 
 
     /** 
@@ -67,6 +71,12 @@ public class AttendanceServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 //        processRequest(request, response);
+        int lessonID = Integer.parseInt(request.getParameter("lessonID"));
+        StudentDBConnection stuDB = new StudentDBConnection();
+        ArrayList<Student> stuList = stuDB.listByLessonID(lessonID);
+        request.setAttribute("students", stuList);
+        request.setAttribute("lessonID", lessonID);
+        request.getRequestDispatcher("jsp/take.jsp").forward(request, response);
     }
 
     /** 

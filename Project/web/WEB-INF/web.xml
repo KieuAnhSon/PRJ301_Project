@@ -8,6 +8,10 @@
         <servlet-name>AttendanceViewServlet</servlet-name>
         <servlet-class>Servlet.AttendanceViewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AttendanceInsertServlet</servlet-name>
+        <servlet-class>Servlet.AttendanceInsertServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AttendanceServlet</servlet-name>
         <url-pattern>/attend</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>AttendanceViewServlet</servlet-name>
         <url-pattern>/view</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AttendanceInsertServlet</servlet-name>
+        <url-pattern>/insert</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

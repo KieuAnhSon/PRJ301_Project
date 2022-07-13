@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class Student {
 
     private int id;
-    private String Name;
-    private String Email;
+    private String name;
+    private String email;
     private ArrayList<Group> groups = new ArrayList<>();
 
     public ArrayList<Group> getGroups() {
@@ -34,19 +34,19 @@ public class Student {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

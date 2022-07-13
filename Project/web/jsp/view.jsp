@@ -58,7 +58,10 @@
                                             <div style="color: red;">
                                                 (Not yet)
                                             </div>
-                                            <div>Take</div>
+                                            <form action="attend" method="POST" id="attend_${l.lessonID}">
+                                                <input type="hidden" name="lessonID" value="${l.lessonID}"/>
+                                                <a href="#" onclick="document.getElementById('attend_${l.lessonID}').submit()">Take</a>
+                                            </form>
                                         </c:if>
                                         <c:if test="${l.checked eq true}">
                                             <div style="color: green;">
