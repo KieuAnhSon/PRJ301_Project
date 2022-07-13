@@ -60,6 +60,7 @@
                                             </div>
                                             <form action="attend" method="POST" id="attend_${l.lessonID}">
                                                 <input type="hidden" name="lessonID" value="${l.lessonID}"/>
+                                                <input type="hidden" name="status" value="${l.checked}"/>
                                                 <a href="#" onclick="document.getElementById('attend_${l.lessonID}').submit()">Take</a>
                                             </form>
                                         </c:if>
@@ -67,7 +68,11 @@
                                             <div style="color: green;">
                                                 (Attended)
                                             </div>
-                                            <div>Update</div>
+                                            <form action="attend" method="POST" id="attend_${l.lessonID}">
+                                                <input type="hidden" name="lessonID" value="${l.lessonID}"/>
+                                                <input type="hidden" name="status" value="${l.checked}"/>
+                                                <a href="#" onclick="document.getElementById('attend_${l.lessonID}').submit()">Update</a>
+                                            </form>
                                         </c:if>
                                     </td>
                                 </c:if>

@@ -12,18 +12,18 @@ import java.sql.Date;
  */
 public class Attendance {
 
-    private int studentID;
+    private Student student;
     private Lesson lesson;
     private boolean status;
     private String comment;
     private Date recordTime;
 
-    public int getStudentID() {
-        return studentID;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudentID(int studentID) {
-        this.studentID = studentID;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public Lesson getLesson() {
