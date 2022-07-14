@@ -16,12 +16,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -94,7 +94,7 @@ public class AttendanceInsertServlet extends HttpServlet {
             a.setLesson(l);
             String raw_comment = request.getParameter("comment_" + index);
             a.setComment(raw_comment != null ? raw_comment : null);
-            a.setRecordTime(java.sql.Date.valueOf(LocalDate.now()));
+            a.setRecordTime(new Timestamp(System.currentTimeMillis()));
             attendList.add(a);
         }
         attendDB.insertByList(attendList);

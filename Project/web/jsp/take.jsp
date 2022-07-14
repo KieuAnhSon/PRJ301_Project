@@ -4,6 +4,7 @@
     Author     : Mountain
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -57,7 +58,7 @@
                         <td><input type="hidden" name="name_${index}" value="${a.student.name}">${a.student.name}</td>
                         <td><input type="radio" <c:if test="${a.status eq false}">checked="checked"</c:if> name="status_${index}" value="false"/> Absent <input type="radio" <c:if test="${a.status eq true}">checked="checked"</c:if> name="status_${index}" value="true"/> Present</td>
                         <td><input type="text" name="comment_${index}" value="${a.comment}"></td>
-                        <td>${a.recordTime}</td>
+                        <td><fmt:formatDate value="${a.recordTime}" pattern="dd-MM-yyyy HH:mm:ss"></fmt:formatDate></td>
                         </tr>
                         <c:set var="index" value="${index+1}"></c:set>
                     </c:forEach>

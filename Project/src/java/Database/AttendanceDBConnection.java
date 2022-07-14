@@ -60,7 +60,7 @@ public class AttendanceDBConnection extends DBConnection<Attendance> {
                 a.setLesson(l);
                 a.setStatus(rs.getBoolean("AttendanceStatus"));
                 a.setComment(rs.getNString("Comment"));
-                a.setRecordTime(rs.getDate("RecordTime"));
+                a.setRecordTime(rs.getTimestamp("RecordTime"));
                 attend.add(a);
             }
         } catch (SQLException ex) {
@@ -102,7 +102,7 @@ public class AttendanceDBConnection extends DBConnection<Attendance> {
                 stm.setString(3, list.getStudent().getName());
                 stm.setBoolean(4, list.isStatus());
                 stm.setString(5, list.getComment());
-                stm.setDate(6, list.getRecordTime());
+                stm.setTimestamp(6, list.getRecordTime());
                 stm.executeUpdate();
             } catch (SQLException ex) {
                 Logger.getLogger(AttendanceDBConnection.class.getName()).log(Level.SEVERE, null, ex);
@@ -121,7 +121,7 @@ public class AttendanceDBConnection extends DBConnection<Attendance> {
                 PreparedStatement stm = connection.prepareStatement(sql);
                 stm.setBoolean(1, list.isStatus());
                 stm.setString(2, list.getComment());
-                stm.setDate(3, list.getRecordTime());
+                stm.setTimestamp(3, list.getRecordTime());
                 stm.setInt(4, list.getStudent().getId());
                 stm.setInt(5, list.getLesson().getLessonID());
                 stm.executeUpdate();

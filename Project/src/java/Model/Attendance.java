@@ -5,6 +5,7 @@
 package Model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Attendance {
     private Lesson lesson;
     private boolean status;
     private String comment;
-    private Date recordTime;
+    private Timestamp recordTime;
 
     public Student getStudent() {
         return student;
@@ -50,11 +51,11 @@ public class Attendance {
         this.comment = comment;
     }
 
-    public Date getRecordTime() {
+    public Timestamp getRecordTime() {
         return recordTime;
     }
 
-    public void setRecordTime(Date recordTime) {
+    public void setRecordTime(Timestamp recordTime) {
         this.recordTime = recordTime;
     }
 
