@@ -15,6 +15,7 @@
     </head>
     <body>
         <form action="view" method="POST">
+            <div style="text-align: center;" >
             Lecturer: <select name="instructor">
                 <c:forEach items="${requestScope.ins}" var="i">
                     <option 
@@ -35,6 +36,7 @@
                        </c:if>
                        /><br/>
             <input type="submit" value="Send"/>
+            </div>
         </form>
         <c:if test="${requestScope.lessons ne null}">
             <table>

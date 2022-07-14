@@ -96,6 +96,8 @@ public class AttendanceUpdateServlet extends HttpServlet {
             attends.add(a);
         }
         attendDB.updateByList(attends);
+        request.setAttribute("status", "updated");
+        request.getRequestDispatcher("jsp/report.jsp").forward(request, response);
     }
 
     /**

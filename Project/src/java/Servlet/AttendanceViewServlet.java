@@ -101,6 +101,11 @@ public class AttendanceViewServlet extends HttpServlet {
         int insID = Integer.parseInt(request.getParameter("instructor"));
         Date fromDate = Date.valueOf(request.getParameter("fromdate"));
         Date toDate = Date.valueOf(request.getParameter("todate"));
+        if (fromDate.compareTo(toDate) > 0) {
+            Date temp = toDate;
+            toDate = fromDate;
+            fromDate = temp;
+        }
         Date begin = fromDate;
         ArrayList<Date> dates = new ArrayList<>();
         while (begin.compareTo(toDate) <= 0) {
