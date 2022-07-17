@@ -16,7 +16,7 @@
                 count--;
                 document.getElementById("timer").innerHTML = count;
                 if (count <= 0)
-                    window.location.href = 'view';
+                    window.location.href = 'index.html';
             }
             setInterval(countdown, 1000);
         </script>

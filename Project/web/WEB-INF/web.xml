@@ -20,6 +20,10 @@
         <servlet-name>StudentAttendanceViewingServlet</servlet-name>
         <servlet-class>Servlet.StudentAttendanceViewingServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AttendanceTakeTodayServlet</servlet-name>
+        <servlet-class>Servlet.AttendanceTakeTodayServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AttendanceServlet</servlet-name>
         <url-pattern>/attend</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>StudentAttendanceViewingServlet</servlet-name>
         <url-pattern>/view_student</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AttendanceTakeTodayServlet</servlet-name>
+        <url-pattern>/take_today</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

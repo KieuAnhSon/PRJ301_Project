@@ -107,6 +107,58 @@ public class LessonDBConnection extends DBConnection<Lesson> {
         }
     }
 
+    public ArrayList<Lesson> getListToday(int insID, Date currentDate) {
+        ArrayList<Lesson> lessons = new ArrayList<>();
+        try {
+            String sql = "Select LessonID,LessonName,LessonNo,LessonDate,Checked\n"
+                    + ",TimeSlot.TimeID,TimeBegin,TimeEnd,Lesson.RoomID,RoomPlace\n"
+                    + ",InstructorName,[Group].GroupID,[Group].GroupName,Course.CourseID,CourseName from Lesson\n"
+                    + "inner join TimeSlot on Lesson.TimeID = TimeSlot.TimeID\n"
+                    + "inner Join Room on Lesson.RoomID = Room.RoomID\n"
+                    + "inner join Instructor on Lesson.InstructorID = Instructor.InstructorID\n"
+                    + "inner join [Group] on Lesson.GroupID = [Group].GroupID\n"
+                    + "inner join Course on [Group].CourseID = Course.CourseID\n"
+                    + "where (Instructor.InstructorID = ?) and (Lesson.LessonDate = ''+?+'')";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, insID);
+            stm.setString(2, currentDate.toString());
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Lesson l = new Lesson();
+                l.setLessonID(rs.getInt("LessonID"));
+                l.setLessonName(rs.getNString("LessonName"));
+                l.setLessonDate(rs.getDate("LessonDate"));
+                l.setLessonNo(rs.getInt("LessonNo"));
+                l.setChecked(rs.getBoolean("Checked"));
+                TimeSlot t = new TimeSlot();
+                t.setTimeID(rs.getInt("TimeID"));
+                t.setTimeStart(rs.getTime("TimeBegin"));
+                t.setTimeEnd(rs.getTime("TimeEnd"));
+                l.setTime(t);
+                Room r = new Room();
+                r.setRoomID(rs.getNString("RoomID"));
+                r.setRoomPlace(rs.getNString("RoomPlace"));
+                l.setRoom(r);
+                Instructor i = new Instructor();
+                i.setInsID(insID);
+                i.setInsName(rs.getNString("InstructorName"));
+                l.setIns(i);
+                Group g = new Group();
+                g.setGroupID(rs.getInt("GroupID"));
+                g.setGroupName(rs.getNString("GroupName"));
+                Course c = new Course();
+                c.setCourseID(rs.getNString("CourseID"));
+                c.setCourseName(rs.getNString("CourseName"));
+                g.setCourse(c);
+                l.setGroup(g);
+                lessons.add(l);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LessonDBConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lessons;
+    }
+
     @Override
     public void delete(Lesson model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
