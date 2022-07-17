@@ -10,3 +10,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 td{
     border: 1px double black;
 }
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
