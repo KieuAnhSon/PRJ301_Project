@@ -90,9 +90,12 @@ public class AttendanceTakeTodayServlet extends HttpServlet {
         int insID = Integer.parseInt(request.getParameter("instructor"));
         LessonDBConnection lesDB = new LessonDBConnection();
         ArrayList<Lesson> lessons = lesDB.getListToday(insID, new java.sql.Date(currentDate.getTime()));
-        Collections.sort(lessons, (o1, o2) -> {
-            return o1.getTime().getTimeID() - o2.getTime().getTimeID();
-        });
+        lessons = lessons.size() == 0 ? null : lessons;
+        if (lessons != null) {
+            Collections.sort(lessons, (o1, o2) -> {
+                return o1.getTime().getTimeID() - o2.getTime().getTimeID();
+            });
+        }
         //request.setAttribute(string, cal);
         request.setAttribute("lessons", lessons);
         request.setAttribute("instructors", ins);

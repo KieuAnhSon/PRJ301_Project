@@ -54,5 +54,8 @@
                 </c:forEach>
             </table>
         </c:if>
+        <c:if test="${requestScope.lessons eq null}">
+            No lessons today.
+        </c:if>
     </body>
 </html>
